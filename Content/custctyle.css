@@ -1,0 +1,29 @@
+﻿body, html {
+    height: auto;
+    background-repeat: no-repeat;
+    background-image: linear-gradient(rgb(104, 145, 162), rgb(12, 97, 33));
+    color: white;
+}
+
+
+.contentbar {
+    background-color: #003171;
+    border-radius: 0 0 20px 20px;
+    box-shadow: 0 0 10px 10px;
+    width: auto;
+    height: auto;
+    color: #67727A;
+}
+.profile-img-card {
+   
+    margin: 0 auto 10px;
+    display: block;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+}
+
+.imgradius {
+    width: 96px;
+    height: 96px;
+}
