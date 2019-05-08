@@ -1,0 +1,63 @@
+﻿@model IEnumerable<SandMax1.Models.tblPassenger_HMS03_Team7>
+@{
+    ViewBag.Title = "PassengerHistory";
+}
+
+<h2>PassengerHistory</h2>
+
+<link rel="stylesheet" href="~/Content/style.css" />
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.JourneyID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PassengerName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Age)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+
+        int JourneyID = int.Parse(Session["JID"].ToString());
+        //modelItem => item.tblJourney_HMS03_Team7.CustomerID = CustID;
+
+        if (item.JourneyID == JourneyID)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.JourneyID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PassengerName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Gender)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Age)
+                </td>
+
+                @*<td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.PassengerID }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.PassengerID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.PassengerID })
+                    </td>*@
+            </tr>
+        }
+
+    }
+</table>
+         @Html.ActionLink("Back","JourneyHistory", "tblJourney_HMS03_Team7")
+
+
+

@@ -1,0 +1,145 @@
+﻿@model SandMax1.Models.tblJourney_HMS03_Team7
+
+@{
+    ViewBag.Title = "ViewTicket";
+}
+
+<h2>ViewTicket</h2>
+
+<div>
+    <h4>tblJourney_HMS03_Team7</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.Label("Transaction ID")
+        </dt>
+        <dd>
+            @Html.Label(Session["TransactionID"].ToString())
+        </dd>
+        <dt>
+
+            @Html.DisplayNameFor(model => model.tblSchedule_HMS03_Team7.tblAeroplane_HMS03_Team7.AirplaneSeries)
+        </dt>
+        <dt>
+            @Html.Display("Source")
+        </dt>
+        
+        <dd>
+            @Html.DisplayFor(model => model.tblSchedule_HMS03_Team7.tblAeroplane_HMS03_Team7.AirplaneSeries)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblSchedule_HMS03_Team7.Source)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.tblSchedule_HMS03_Team7.Source)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.tblSchedule_HMS03_Team7.Destination)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.tblSchedule_HMS03_Team7.Destination)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.tblSchedule_HMS03_Team7.Departure)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.tblSchedule_HMS03_Team7.Departure)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.tblSchedule_HMS03_Team7.Arrival)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.tblSchedule_HMS03_Team7.Arrival)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalBookingFare)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TotalBookingFare)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.BookingDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BookingDate.Value)
+        </dd>
+
+
+        @*@*<dt>
+            @Html.DisplayNameFor(model => model.TotalBookingFare)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TotalBookingFare)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NoOfPassengers_Adult)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NoOfPassengers_Adult)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NoOfPassengers_Child)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NoOfPassengers_Child)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PaymentStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PaymentStatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BonusRequstStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BonusRequstStatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BookingDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BookingDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AdditionalBaggageCharge)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AdditionalBaggageCharge)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblCustomer_HMS03_Team7.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblCustomer_HMS03_Team7.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblSchedule_HMS03_Team7.Source)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblSchedule_HMS03_Team7.Source)
+        </dd>*@*@
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Book another ticket", "Search") |
+    @Html.ActionLink("Back to List", "Index")
+</p>

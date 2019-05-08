@@ -1,0 +1,109 @@
+﻿@model IEnumerable<SandMax1.Models.tblAeroplane_HMS03_Team7>
+
+@{
+    ViewBag.Title = "viewOwnedAeroplanes";
+}
+
+<h2>viewOwnedAeroplanes</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DateOfCommencement)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateOdMAnufacturing)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AirplaneSeries)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Airline)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Capacity_Premium)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Capacity_FirstClass)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Capacity_Economy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TakeOffWeight)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MaximumDistance)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LocationOfPlane)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RecentUpdate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ScheduleStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tblEmployee_HMS03_Team7.Employee_Name)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        if (item.Airline.Equals("Indigo"))
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateOfCommencement)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateOdMAnufacturing)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AirplaneSeries)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Airline)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Capacity_Premium)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Capacity_FirstClass)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Capacity_Economy)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TakeOffWeight)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MaximumDistance)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LocationOfPlane)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RecentUpdate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ScheduleStatus)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.tblEmployee_HMS03_Team7.Employee_Name)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.PlaneRegistrationID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.PlaneRegistrationID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.PlaneRegistrationID })
+                </td>
+            </tr>
+        }
+    }
+
+</table>

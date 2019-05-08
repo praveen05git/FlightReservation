@@ -1,0 +1,36 @@
+﻿@model SandMax1.Models.tblLogin_HMS03_Team7
+
+@{
+    ViewBag.Title = "Log";
+}
+
+<h2>Log-In <span class="glyphicon glyphicon-log-in"></span></h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="container">
+        <div class="card card-container">
+            <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+            <p id="profile-name" class="profile-name-card"></p>
+            <form class="form-signin">
+              
+                @Html.EditorFor(model => model.uname, new { htmlAttributes = new { @class = "form-control editor", placeholder = "User Name", required = "required" } })
+                <br />
+                @Html.EditorFor(model => model.pwd, new { htmlAttributes = new { @class = "form-control editor", placeholder = "Password", required = "required" } })
+                <br />
+                <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Log in <span class="glyphicon glyphicon-plane"></span></button>
+            </form>
+            <a href="@Url.Action("credit","tblCustomer_HMS03_Team7")" class="btn btn-block btn-primary">Sign Up</a>
+        </div>
+    </div>
+}
+
+<link rel="stylesheet" href="~/Content/Loginstyle.css" />
+<link rel="stylesheet" href="~/Content/logincss.css" />
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

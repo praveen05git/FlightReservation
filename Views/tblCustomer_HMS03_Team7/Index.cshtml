@@ -1,0 +1,326 @@
+﻿@model IEnumerable<SandMax1.Models.tblCustomer_HMS03_Team7>
+
+@{
+    ViewBag.Title = "Index";
+}
+<link rel="stylesheet" href="~/Content/custctyle.css" />
+
+<div class="row">
+    <div class="col-md-4">
+        @foreach (var item in Model)
+    {
+        int uid = int.Parse(Session["userid"].ToString());
+        if (uid == item.LoginID)
+        {
+            string fname = item.FirstName;
+            <h2>@Html.Label("Welcome back " + fname)</h2>
+    }
+}
+
+    </div>
+    <div class="col-md-4">
+
+    </div>
+    <div class="col-md-4">
+        <img id="profile-img" class="img-circle imgradius" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+    </div>
+</div>
+<hr />
+@*<table class="table">
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.Title)
+            </td>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateOfBirth)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Gender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StreetAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.City)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.State)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ZipCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nationality)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MobileNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AlternateNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CompanyName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OfficeAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BonusMilePoints)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tblLogin_HMS03_Team7.uname)
+            </th>
+            <th></th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            int uid = int.Parse(Session["userid"].ToString());
+            if (uid == item.LoginID)
+            {
+                Session["custid"] = item.CustomerID;
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FirstName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LastName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DateOfBirth)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Gender)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.StreetAddress)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.City)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.State)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ZipCode)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nationality)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MobileNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AlternateNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PhoneNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CompanyName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.OfficeAddress)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.BonusMilePoints)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.tblLogin_HMS03_Team7.uname)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.CustomerID }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.CustomerID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.CustomerID })
+                    </td>
+                </tr>
+            }
+        }
+
+    </table>*@
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        @foreach (var item in Model)
+    {
+        int uid = int.Parse(Session["userid"].ToString());
+        if (uid == item.LoginID)
+        {
+            Session["custid"] = item.CustomerID;
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Title)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => item.Title)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.FirstName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => item.FirstName)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.LastName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => item.LastName)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.DateOfBirth)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => item.DateOfBirth)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Gender)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => item.Gender)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.StreetAddress)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => item.StreetAddress)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.City)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => item.City)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.State)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => item.State)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.ZipCode)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => item.ZipCode)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Nationality)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => item.Nationality)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.MobileNumber)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => item.MobileNumber)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.AlternateNumber)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => item.AlternateNumber)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.PhoneNumber)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => item.PhoneNumber)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Email)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => item.Email)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.CompanyName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => item.CompanyName)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.OfficeAddress)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => item.OfficeAddress)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.BonusMilePoints)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => item.BonusMilePoints)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.tblLogin_HMS03_Team7.uname)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => item.tblLogin_HMS03_Team7.uname)
+                </dd>
+
+                <dd>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.CustomerID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.CustomerID })
+                </dd>
+
+            </dl>
+    }
+}
+      
+    </div>
+
+    <div class="col-md-4">
+
+    </div>
+</div>

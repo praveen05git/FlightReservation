@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "testing";
+}
+
+<h2>testing</h2>
+<head>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+    <script src="~/Content/CustomerAngular.js"></script>
+</head>
+<body ng-app="">
+    <form name="inputform">
+        <input type="text" name="text1" ng-model="name" />
+        {{name}}
+
+        enter <input type="text" name="inputname" ng-model="inputname" ng-maxlength="6" />
+
+       <a ng-if="!inputform.inputname.$valid">TooLong</a>
+    </form>
+
+</body>

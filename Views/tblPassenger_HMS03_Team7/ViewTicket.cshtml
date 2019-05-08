@@ -1,0 +1,130 @@
+﻿@model IEnumerable<SandMax1.Models.tblPassenger_HMS03_Team7>
+
+@{
+    ViewBag.Title = "ViewTicket";
+    ViewBag.sno = -62;
+}
+
+<h2>Ticket</h2>
+<head>
+    <script>
+
+        function myFunction() {
+            window.print();
+        }
+    </script>
+</head>
+
+<link rel="stylesheet" href="~/Content/style.css" />
+<div>
+    <dl class="dl-horizontal">
+
+        @foreach (var item in Model)
+        {
+            if (item.JourneyID == int.Parse(Session["JourneyID"].ToString()))
+            {
+
+                <!---->
+                <dt>
+                    @Html.Label("Transaction ID")
+                </dt>
+                <dd>
+                    @Html.Label(Session["TransactionID"].ToString())
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.tblJourney_HMS03_Team7.tblSchedule_HMS03_Team7.tblAeroplane_HMS03_Team7.AirplaneSeries)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => item.tblJourney_HMS03_Team7.tblSchedule_HMS03_Team7.tblAeroplane_HMS03_Team7.AirplaneSeries)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.tblJourney_HMS03_Team7.tblSchedule_HMS03_Team7.Source)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => item.tblJourney_HMS03_Team7.tblSchedule_HMS03_Team7.Source)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.tblJourney_HMS03_Team7.tblSchedule_HMS03_Team7.Destination)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => item.tblJourney_HMS03_Team7.tblSchedule_HMS03_Team7.Destination)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.tblJourney_HMS03_Team7.tblSchedule_HMS03_Team7.Departure)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => item.tblJourney_HMS03_Team7.tblSchedule_HMS03_Team7.Departure)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.tblJourney_HMS03_Team7.tblSchedule_HMS03_Team7.Arrival)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => item.tblJourney_HMS03_Team7.tblSchedule_HMS03_Team7.Arrival)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.tblJourney_HMS03_Team7.TotalBookingFare)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => item.tblJourney_HMS03_Team7.TotalBookingFare)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.tblJourney_HMS03_Team7.BookingDate)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => item.tblJourney_HMS03_Team7.BookingDate)
+                </dd>
+
+                break;
+
+            }
+        }
+    </dl>
+</div>
+
+<div>
+    <table class="table">
+        <tr>
+            <th>
+                S.No.
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PassengerName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Gender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Age)
+            </th>
+        </tr>
+
+
+        @foreach (var item in Model)
+        {
+            if (item.JourneyID == int.Parse(Session["JourneyID"].ToString()))
+            {
+                <tr>
+                    <td>
+                        @ViewBag.sno
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PassengerName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Gender)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Age)
+                    </td>
+                </tr>
+            }
+            ViewBag.sno += 1;
+        }
+
+    </table>
+</div>
+<div>
+    <center>
+        <button onclick="myFunction()">Print ticket</button>
+    </center>
+</div>

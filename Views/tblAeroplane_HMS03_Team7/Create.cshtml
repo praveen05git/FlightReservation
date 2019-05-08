@@ -1,0 +1,145 @@
+﻿@model SandMax1.Models.tblAeroplane_HMS03_Team7
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_SchedulerLayout.cshtml";
+}
+@*<link href="~/Content/FlightStyle.css" rel="stylesheet" />*@
+<h2 style="color:blue;text-align:left;">Adding An Aeroplane</h2>
+
+@using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <marquee style="font-family:Arial;font-size:300;text-decoration-color:red">WHILE ENTERING DETAILS FOLLOW THE INSTRUCTIONS</marquee>
+            <h3 style="text-align:center;font-family:Arial;color:blue"><b>Create new Flights</b></h3>
+            <br />
+         
+            @*<div class="jumbotron ">*@
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+              
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.DateOfCommencement, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.DateOfCommencement, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.DateOfCommencement, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.DateOdMAnufacturing, htmlAttributes: new { @class = "control-label col-md-2" })
+
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.DateOdMAnufacturing, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.DateOdMAnufacturing, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+              
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.AirplaneSeries, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.AirplaneSeries, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.AirplaneSeries, "", new { @class = "text-danger" })
+
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Airline, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Airline, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Airline, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Capacity_Premium, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Capacity_Premium, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Capacity_Premium, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Capacity_FirstClass, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Capacity_FirstClass, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Capacity_FirstClass, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Capacity_Economy, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Capacity_Economy, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Capacity_Economy, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.TakeOffWeight, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.TakeOffWeight, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.TakeOffWeight, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.MaximumDistance, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.MaximumDistance, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.MaximumDistance, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.LocationOfPlane, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.LocationOfPlane, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.LocationOfPlane, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    @*<div class="form-group">
+                @Html.LabelFor(model => model.SchedulerID, "SchedulerID", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("SchedulerID", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.SchedulerID, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
+
+                    @*<div class="form-group">
+                @Html.LabelFor(model => model.RecentUpdate, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.RecentUpdate, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.RecentUpdate, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
+
+                    @*<div class="form-group">
+                @Html.LabelFor(model => model.ScheduleStatus, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ScheduleStatus, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ScheduleStatus, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Create" class="btn btn-default" />
+                        </div>
+                    </div>
+                </div>
+            @*</div>*@
+    }
+        @*<link rel="stylesheet" href="~/Content/StyleSheet2.css" />*@
+<div>
+    @Html.ActionLink("Cancel", "Index")
+</div>
+<link href="~/Content/Aerosheet.css" rel="stylesheet" />
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,42 @@
+﻿@model SandMax1.Models.tblLogin_HMS03_Team7
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tblLogin_HMS03_Team7</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.uname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.uname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pwd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pwd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.roles)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.roles)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.LoginID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

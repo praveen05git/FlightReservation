@@ -1,0 +1,88 @@
+﻿@model SandMax1.Models.tblPassenger_HMS03_Team7
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>tblPassenger_HMS03_Team7</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PassengerName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PassengerName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gender)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gender)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Age)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Age)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NoOfBaggages)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NoOfBaggages)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalWeightOfBaggages)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalWeightOfBaggages)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CheckInStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CheckInStatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CheckOutDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CheckOutDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblJourney_HMS03_Team7.PaymentStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblJourney_HMS03_Team7.PaymentStatus)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

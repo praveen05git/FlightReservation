@@ -1,0 +1,88 @@
+﻿@model IEnumerable<SandMax1.Models.tblJourney_HMS03_Team7>
+@{
+    ViewBag.Title = "JourneyHistory";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Travel History</h2>
+
+<link rel="stylesheet" href="~/Content/style.css" />
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.JourneyID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tblSchedule_HMS03_Team7.Source)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tblSchedule_HMS03_Team7.Destination)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tblSchedule_HMS03_Team7.Departure)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tblSchedule_HMS03_Team7.Arrival)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalBookingFare)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BonusRequstStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BookingDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PaymentStatus)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+
+        int CustID = int.Parse(Session["cid"].ToString());
+        if (CustID == item.CustomerID)
+        {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.JourneyID)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.tblSchedule_HMS03_Team7.Source)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.tblSchedule_HMS03_Team7.Destination)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tblSchedule_HMS03_Team7.Departure)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tblSchedule_HMS03_Team7.Arrival)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalBookingFare)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BonusRequstStatus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BookingDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PaymentStatus)
+        </td>
+        <td>
+
+            @Html.ActionLink("View Passengers", "PassengerHistory", new { id = item.JourneyID })
+
+        </td>
+    </tr>
+        }
+    }
+
+</table>

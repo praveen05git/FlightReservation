@@ -1,0 +1,134 @@
+﻿@model SandMax1.Models.tblJourney_HMS03_Team7
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+}
+
+<h2>Confirm Details</h2>
+<link rel="stylesheet" href="~/Content/style.css" />
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.tblSchedule_HMS03_Team7.tblAeroplane_HMS03_Team7.AirplaneSeries)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblSchedule_HMS03_Team7.tblAeroplane_HMS03_Team7.AirplaneSeries)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.tblSchedule_HMS03_Team7.tblAeroplane_HMS03_Team7.Airline)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblSchedule_HMS03_Team7.tblAeroplane_HMS03_Team7.Airline)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.tblSchedule_HMS03_Team7.Source)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblSchedule_HMS03_Team7.Source)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.tblSchedule_HMS03_Team7.Destination)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblSchedule_HMS03_Team7.Destination)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.tblSchedule_HMS03_Team7.Departure)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblSchedule_HMS03_Team7.Departure)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.tblSchedule_HMS03_Team7.Arrival)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblSchedule_HMS03_Team7.Arrival)
+        </dd>
+        <dt>
+            Class
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BonusRequstStatus)
+        </dd>
+        <dt>
+            Adults
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NoOfPassengers_Adult)
+        </dd>
+
+        <dt>
+            Children
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NoOfPassengers_Child)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PaymentStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PaymentStatus)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.BookingDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BookingDate)
+        </dd>
+
+
+        @*<dt>
+            @Html.DisplayNameFor(model => model.tblCustomer_HMS03_Team7.FirstName)
+            @Html.DisplayNameFor(model => model.tblCustomer_HMS03_Team7.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblCustomer_HMS03_Team7.FirstName)
+            @Html.DisplayNameFor(model => model.tblCustomer_HMS03_Team7.LastName)
+        </dd>*@
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalBookingFare)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalBookingFare)
+        </dd>
+    </dl>
+</div>
+@*<p>
+    @Html.ActionLink("Add Passenger", "AddPassenger", "tblPassenger_HMS03_Team7") |
+    @Html.ActionLink("Replan", "Create", "tblSearch_HMS03_Team7")
+   
+</p>*@
+<div>
+    <center>
+        <table>
+            <tr>
+                <td>
+                    <a href="@Url.Action("Create", "tblSearch_HMS03_Team7")" class="btn btn-default" type="submit" value="Replan" name="Replan">Replan</a>
+                </td>
+                <td></td>
+                <td>
+                    <a href="@Url.Action("AddPassenger", "tblPassenger_HMS03_Team7")" class="btn btn-default" type="submit">Add Passenger</a>
+                </td>
+            </tr>
+        </table>
+    </center>
+</div>
