@@ -1,0 +1,923 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DB09AO114_1718Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tblAeroplane_HMS03_Team7">
+          <Key>
+            <PropertyRef Name="PlaneRegistrationID" />
+          </Key>
+          <Property Name="PlaneRegistrationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DateOfCommencement" Type="date" Nullable="false" />
+          <Property Name="DateOdMAnufacturing" Type="date" Nullable="false" />
+          <Property Name="AirplaneSeries" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="Airline" Type="varchar" MaxLength="60" />
+          <Property Name="Capacity_Premium" Type="int" Nullable="false" />
+          <Property Name="Capacity_FirstClass" Type="int" Nullable="false" />
+          <Property Name="Capacity_Economy" Type="int" Nullable="false" />
+          <Property Name="TakeOffWeight" Type="int" Nullable="false" />
+          <Property Name="MaximumDistance" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="LocationOfPlane" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="SchedulerID" Type="int" />
+          <Property Name="RecentUpdate" Type="datetime" />
+          <Property Name="ScheduleStatus" Type="varchar" MaxLength="60" />
+        </EntityType>
+        <EntityType Name="tblBonusMilesRequest_HMS03_Team7">
+          <Key>
+            <PropertyRef Name="BonusID" />
+          </Key>
+          <Property Name="BonusID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="JourneyID" Type="int" />
+          <Property Name="BonusRequestDate" Type="datetime" />
+          <Property Name="BonusApprovalStatus" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblCustomer_HMS03_Team7">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LoginID" Type="int" />
+          <Property Name="Title" Type="varchar" MaxLength="5" />
+          <Property Name="FirstName" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="LastName" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="DateOfBirth" Type="date" />
+          <Property Name="Gender" Type="varchar" MaxLength="7" Nullable="false" />
+          <Property Name="StreetAddress" Type="varchar" MaxLength="20" />
+          <Property Name="City" Type="varchar" MaxLength="15" />
+          <Property Name="State" Type="varchar" MaxLength="15" />
+          <Property Name="ZipCode" Type="int" />
+          <Property Name="Nationality" Type="varchar" MaxLength="15" />
+          <Property Name="MobileNumber" Type="bigint" />
+          <Property Name="AlternateNumber" Type="bigint" />
+          <Property Name="PhoneNumber" Type="bigint" />
+          <Property Name="Email" Type="varchar" MaxLength="25" />
+          <Property Name="CompanyName" Type="varchar" MaxLength="15" />
+          <Property Name="OfficeAddress" Type="varchar" MaxLength="20" />
+          <Property Name="BonusMilePoints" Type="decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="tblEmployee_HMS03_Team7">
+          <Key>
+            <PropertyRef Name="EmployeeID" />
+          </Key>
+          <Property Name="EmployeeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LoginID" Type="int" />
+          <Property Name="Employee_Name" Type="varchar" MaxLength="50" />
+          <Property Name="Gender" Type="varchar" MaxLength="30" />
+          <Property Name="DateofBirth" Type="date" />
+          <Property Name="Age" Type="int" />
+          <Property Name="Designation" Type="varchar" MaxLength="50" />
+          <Property Name="Airlines" Type="varchar" MaxLength="50" />
+          <Property Name="Work_location" Type="varchar" MaxLength="50" />
+          <Property Name="Contact_Number" Type="bigint" />
+          <Property Name="EmailID" Type="varchar" MaxLength="50" />
+          <Property Name="Address" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="tblJourney_HMS03_Team7">
+          <Key>
+            <PropertyRef Name="JourneyID" />
+          </Key>
+          <Property Name="JourneyID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CustomerID" Type="int" />
+          <Property Name="ScheduleID" Type="int" />
+          <Property Name="TotalBookingFare" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="NoOfPassengers_Adult" Type="int" />
+          <Property Name="NoOfPassengers_Child" Type="int" />
+          <Property Name="PaymentStatus" Type="varchar" MaxLength="15" />
+          <Property Name="BonusRequstStatus" Type="varchar" MaxLength="15" />
+          <Property Name="BookingDate" Type="datetime" />
+          <Property Name="AdditionalBaggageCharge" Type="decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="tblLogin_HMS03_Team7">
+          <Key>
+            <PropertyRef Name="LoginID" />
+          </Key>
+          <Property Name="LoginID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="uname" Type="varchar" MaxLength="100" />
+          <Property Name="pwd" Type="varchar" MaxLength="100" />
+          <Property Name="roles" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblPassenger_HMS03_Team7">
+          <Key>
+            <PropertyRef Name="PassengerID" />
+          </Key>
+          <Property Name="PassengerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="JourneyID" Type="int" />
+          <Property Name="PassengerName" Type="varchar" MaxLength="50" />
+          <Property Name="Gender" Type="varchar" MaxLength="7" />
+          <Property Name="Age" Type="int" />
+          <Property Name="NoOfBaggages" Type="int" />
+          <Property Name="TotalWeightOfBaggages" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="CheckInStatus" Type="varchar" MaxLength="15" />
+          <Property Name="CheckOutDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tblPayment_HMS03_Team7">
+          <Key>
+            <PropertyRef Name="TransactionID" />
+          </Key>
+          <Property Name="TransactionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="JourneyID" Type="int" />
+          <Property Name="CardType" Type="varchar" MaxLength="60" />
+          <Property Name="CardNumber" Type="bigint" />
+          <Property Name="CVV" Type="int" />
+          <Property Name="ExpiryDate" Type="date" />
+          <Property Name="PaymentDate" Type="datetime" />
+          <Property Name="PaymentType" Type="varchar" MaxLength="60" />
+          <Property Name="CustomerID" Type="int" />
+          <Property Name="ScheduleID" Type="int" />
+        </EntityType>
+        <EntityType Name="tblSchedule_HMS03_Team7">
+          <Key>
+            <PropertyRef Name="ScheduleID" />
+          </Key>
+          <Property Name="ScheduleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PlaneRegistrationID" Type="int" />
+          <Property Name="Source" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Destination" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Departure" Type="datetime" Nullable="false" />
+          <Property Name="Arrival" Type="datetime" Nullable="false" />
+          <Property Name="Fare_Premium_Adult" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Fare_Economy_Adult" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Fare_Firstclass_Adult" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Fare_Premium_Child" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Fare_Firstclass_Child" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Fare_Economy_Child" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Availability_Premium" Type="int" />
+          <Property Name="Availability_Firstclass" Type="int" />
+          <Property Name="Availability_Economy" Type="int" />
+          <Property Name="TravelDistance" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="StatusofFlight" Type="varchar" MaxLength="50" />
+          <Property Name="BonusMiles" Type="varchar" MaxLength="50" />
+          <Property Name="BonusMilesPoints" Type="decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="tblSearch_HMS03_Team7">
+          <Key>
+            <PropertyRef Name="SearchID" />
+          </Key>
+          <Property Name="SearchID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Source" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Destination" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Departure" Type="date" />
+          <Property Name="Class" Type="varchar" MaxLength="15" />
+          <Property Name="NoOfPassengers_Adult" Type="int" />
+          <Property Name="NoOfPassengers_Child" Type="int" />
+        </EntityType>
+        <Association Name="FK__tblAeropl__Sched__0682EC34">
+          <End Role="tblEmployee_HMS03_Team7" Type="Self.tblEmployee_HMS03_Team7" Multiplicity="0..1" />
+          <End Role="tblAeroplane_HMS03_Team7" Type="Self.tblAeroplane_HMS03_Team7" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblEmployee_HMS03_Team7">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="tblAeroplane_HMS03_Team7">
+              <PropertyRef Name="SchedulerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblBonusM__Journ__1C722D53">
+          <End Role="tblJourney_HMS03_Team7" Type="Self.tblJourney_HMS03_Team7" Multiplicity="0..1" />
+          <End Role="tblBonusMilesRequest_HMS03_Team7" Type="Self.tblBonusMilesRequest_HMS03_Team7" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblJourney_HMS03_Team7">
+              <PropertyRef Name="JourneyID" />
+            </Principal>
+            <Dependent Role="tblBonusMilesRequest_HMS03_Team7">
+              <PropertyRef Name="JourneyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblCustom__Login__02B25B50">
+          <End Role="tblLogin_HMS03_Team7" Type="Self.tblLogin_HMS03_Team7" Multiplicity="0..1" />
+          <End Role="tblCustomer_HMS03_Team7" Type="Self.tblCustomer_HMS03_Team7" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblLogin_HMS03_Team7">
+              <PropertyRef Name="LoginID" />
+            </Principal>
+            <Dependent Role="tblCustomer_HMS03_Team7">
+              <PropertyRef Name="LoginID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblEmploy__Login__7FD5EEA5">
+          <End Role="tblLogin_HMS03_Team7" Type="Self.tblLogin_HMS03_Team7" Multiplicity="0..1" />
+          <End Role="tblEmployee_HMS03_Team7" Type="Self.tblEmployee_HMS03_Team7" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblLogin_HMS03_Team7">
+              <PropertyRef Name="LoginID" />
+            </Principal>
+            <Dependent Role="tblEmployee_HMS03_Team7">
+              <PropertyRef Name="LoginID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblJourne__Custo__0F183235">
+          <End Role="tblCustomer_HMS03_Team7" Type="Self.tblCustomer_HMS03_Team7" Multiplicity="0..1" />
+          <End Role="tblJourney_HMS03_Team7" Type="Self.tblJourney_HMS03_Team7" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCustomer_HMS03_Team7">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="tblJourney_HMS03_Team7">
+              <PropertyRef Name="CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblJourne__Sched__100C566E">
+          <End Role="tblSchedule_HMS03_Team7" Type="Self.tblSchedule_HMS03_Team7" Multiplicity="0..1" />
+          <End Role="tblJourney_HMS03_Team7" Type="Self.tblJourney_HMS03_Team7" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblSchedule_HMS03_Team7">
+              <PropertyRef Name="ScheduleID" />
+            </Principal>
+            <Dependent Role="tblJourney_HMS03_Team7">
+              <PropertyRef Name="ScheduleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblPassen__Journ__13DCE752">
+          <End Role="tblJourney_HMS03_Team7" Type="Self.tblJourney_HMS03_Team7" Multiplicity="0..1" />
+          <End Role="tblPassenger_HMS03_Team7" Type="Self.tblPassenger_HMS03_Team7" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblJourney_HMS03_Team7">
+              <PropertyRef Name="JourneyID" />
+            </Principal>
+            <Dependent Role="tblPassenger_HMS03_Team7">
+              <PropertyRef Name="JourneyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblPaymen__Custo__18A19C6F">
+          <End Role="tblCustomer_HMS03_Team7" Type="Self.tblCustomer_HMS03_Team7" Multiplicity="0..1" />
+          <End Role="tblPayment_HMS03_Team7" Type="Self.tblPayment_HMS03_Team7" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCustomer_HMS03_Team7">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="tblPayment_HMS03_Team7">
+              <PropertyRef Name="CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblPaymen__Journ__17AD7836">
+          <End Role="tblJourney_HMS03_Team7" Type="Self.tblJourney_HMS03_Team7" Multiplicity="0..1" />
+          <End Role="tblPayment_HMS03_Team7" Type="Self.tblPayment_HMS03_Team7" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblJourney_HMS03_Team7">
+              <PropertyRef Name="JourneyID" />
+            </Principal>
+            <Dependent Role="tblPayment_HMS03_Team7">
+              <PropertyRef Name="JourneyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblPaymen__Sched__1995C0A8">
+          <End Role="tblSchedule_HMS03_Team7" Type="Self.tblSchedule_HMS03_Team7" Multiplicity="0..1" />
+          <End Role="tblPayment_HMS03_Team7" Type="Self.tblPayment_HMS03_Team7" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblSchedule_HMS03_Team7">
+              <PropertyRef Name="ScheduleID" />
+            </Principal>
+            <Dependent Role="tblPayment_HMS03_Team7">
+              <PropertyRef Name="ScheduleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblSchedu__Plane__0A537D18">
+          <End Role="tblAeroplane_HMS03_Team7" Type="Self.tblAeroplane_HMS03_Team7" Multiplicity="0..1" />
+          <End Role="tblSchedule_HMS03_Team7" Type="Self.tblSchedule_HMS03_Team7" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblAeroplane_HMS03_Team7">
+              <PropertyRef Name="PlaneRegistrationID" />
+            </Principal>
+            <Dependent Role="tblSchedule_HMS03_Team7">
+              <PropertyRef Name="PlaneRegistrationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DB09AO114_1718ModelStoreContainer">
+          <EntitySet Name="tblAeroplane_HMS03_Team7" EntityType="Self.tblAeroplane_HMS03_Team7" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblBonusMilesRequest_HMS03_Team7" EntityType="Self.tblBonusMilesRequest_HMS03_Team7" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblCustomer_HMS03_Team7" EntityType="Self.tblCustomer_HMS03_Team7" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblEmployee_HMS03_Team7" EntityType="Self.tblEmployee_HMS03_Team7" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblJourney_HMS03_Team7" EntityType="Self.tblJourney_HMS03_Team7" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblLogin_HMS03_Team7" EntityType="Self.tblLogin_HMS03_Team7" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblPassenger_HMS03_Team7" EntityType="Self.tblPassenger_HMS03_Team7" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblPayment_HMS03_Team7" EntityType="Self.tblPayment_HMS03_Team7" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblSchedule_HMS03_Team7" EntityType="Self.tblSchedule_HMS03_Team7" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblSearch_HMS03_Team7" EntityType="Self.tblSearch_HMS03_Team7" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__tblAeropl__Sched__0682EC34" Association="Self.FK__tblAeropl__Sched__0682EC34">
+            <End Role="tblEmployee_HMS03_Team7" EntitySet="tblEmployee_HMS03_Team7" />
+            <End Role="tblAeroplane_HMS03_Team7" EntitySet="tblAeroplane_HMS03_Team7" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblBonusM__Journ__1C722D53" Association="Self.FK__tblBonusM__Journ__1C722D53">
+            <End Role="tblJourney_HMS03_Team7" EntitySet="tblJourney_HMS03_Team7" />
+            <End Role="tblBonusMilesRequest_HMS03_Team7" EntitySet="tblBonusMilesRequest_HMS03_Team7" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblCustom__Login__02B25B50" Association="Self.FK__tblCustom__Login__02B25B50">
+            <End Role="tblLogin_HMS03_Team7" EntitySet="tblLogin_HMS03_Team7" />
+            <End Role="tblCustomer_HMS03_Team7" EntitySet="tblCustomer_HMS03_Team7" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblEmploy__Login__7FD5EEA5" Association="Self.FK__tblEmploy__Login__7FD5EEA5">
+            <End Role="tblLogin_HMS03_Team7" EntitySet="tblLogin_HMS03_Team7" />
+            <End Role="tblEmployee_HMS03_Team7" EntitySet="tblEmployee_HMS03_Team7" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblJourne__Custo__0F183235" Association="Self.FK__tblJourne__Custo__0F183235">
+            <End Role="tblCustomer_HMS03_Team7" EntitySet="tblCustomer_HMS03_Team7" />
+            <End Role="tblJourney_HMS03_Team7" EntitySet="tblJourney_HMS03_Team7" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblJourne__Sched__100C566E" Association="Self.FK__tblJourne__Sched__100C566E">
+            <End Role="tblSchedule_HMS03_Team7" EntitySet="tblSchedule_HMS03_Team7" />
+            <End Role="tblJourney_HMS03_Team7" EntitySet="tblJourney_HMS03_Team7" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblPassen__Journ__13DCE752" Association="Self.FK__tblPassen__Journ__13DCE752">
+            <End Role="tblJourney_HMS03_Team7" EntitySet="tblJourney_HMS03_Team7" />
+            <End Role="tblPassenger_HMS03_Team7" EntitySet="tblPassenger_HMS03_Team7" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblPaymen__Custo__18A19C6F" Association="Self.FK__tblPaymen__Custo__18A19C6F">
+            <End Role="tblCustomer_HMS03_Team7" EntitySet="tblCustomer_HMS03_Team7" />
+            <End Role="tblPayment_HMS03_Team7" EntitySet="tblPayment_HMS03_Team7" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblPaymen__Journ__17AD7836" Association="Self.FK__tblPaymen__Journ__17AD7836">
+            <End Role="tblJourney_HMS03_Team7" EntitySet="tblJourney_HMS03_Team7" />
+            <End Role="tblPayment_HMS03_Team7" EntitySet="tblPayment_HMS03_Team7" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblPaymen__Sched__1995C0A8" Association="Self.FK__tblPaymen__Sched__1995C0A8">
+            <End Role="tblSchedule_HMS03_Team7" EntitySet="tblSchedule_HMS03_Team7" />
+            <End Role="tblPayment_HMS03_Team7" EntitySet="tblPayment_HMS03_Team7" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblSchedu__Plane__0A537D18" Association="Self.FK__tblSchedu__Plane__0A537D18">
+            <End Role="tblAeroplane_HMS03_Team7" EntitySet="tblAeroplane_HMS03_Team7" />
+            <End Role="tblSchedule_HMS03_Team7" EntitySet="tblSchedule_HMS03_Team7" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DB09AO114_1718Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tblAeroplane_HMS03_Team7">
+          <Key>
+            <PropertyRef Name="PlaneRegistrationID" />
+          </Key>
+          <Property Name="PlaneRegistrationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DateOfCommencement" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DateOdMAnufacturing" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="AirplaneSeries" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Airline" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="Capacity_Premium" Type="Int32" Nullable="false" />
+          <Property Name="Capacity_FirstClass" Type="Int32" Nullable="false" />
+          <Property Name="Capacity_Economy" Type="Int32" Nullable="false" />
+          <Property Name="TakeOffWeight" Type="Int32" Nullable="false" />
+          <Property Name="MaximumDistance" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="LocationOfPlane" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SchedulerID" Type="Int32" />
+          <Property Name="RecentUpdate" Type="DateTime" Precision="3" />
+          <Property Name="ScheduleStatus" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tblEmployee_HMS03_Team7" Relationship="Self.FK__tblAeropl__Sched__22E195C5" FromRole="tblAeroplane_HMS03_Team7" ToRole="tblEmployee_HMS03_Team7" />
+          <NavigationProperty Name="tblSchedule_HMS03_Team7" Relationship="Self.FK__tblSchedu__Plane__289A6F1B" FromRole="tblAeroplane_HMS03_Team7" ToRole="tblSchedule_HMS03_Team7" />
+        </EntityType>
+        <EntityType Name="tblBonusMilesRequest_HMS03_Team7">
+          <Key>
+            <PropertyRef Name="BonusID" />
+          </Key>
+          <Property Name="BonusID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="JourneyID" Type="Int32" />
+          <Property Name="BonusRequestDate" Type="DateTime" Precision="3" />
+          <Property Name="BonusApprovalStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tblJourney_HMS03_Team7" Relationship="Self.FK__tblBonusM__Journ__44428990" FromRole="tblBonusMilesRequest_HMS03_Team7" ToRole="tblJourney_HMS03_Team7" />
+        </EntityType>
+        <EntityType Name="tblCustomer_HMS03_Team7">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LoginID" Type="Int32" />
+          <Property Name="Title" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="FirstName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DateOfBirth" Type="DateTime" Precision="0" />
+          <Property Name="Gender" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="StreetAddress" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="City" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="State" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="ZipCode" Type="Int32" />
+          <Property Name="Nationality" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="MobileNumber" Type="Int64" />
+          <Property Name="AlternateNumber" Type="Int64" />
+          <Property Name="PhoneNumber" Type="Int64" />
+          <Property Name="Email" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="CompanyName" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="OfficeAddress" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="BonusMilePoints" Type="Decimal" Precision="18" Scale="2" />
+          <NavigationProperty Name="tblLogin_HMS03_Team7" Relationship="Self.FK__tblCustom__Login__1D28BC6F" FromRole="tblCustomer_HMS03_Team7" ToRole="tblLogin_HMS03_Team7" />
+          <NavigationProperty Name="tblJourney_HMS03_Team7" Relationship="Self.FK__tblJourne__Custo__312FB51C" FromRole="tblCustomer_HMS03_Team7" ToRole="tblJourney_HMS03_Team7" />
+          <NavigationProperty Name="tblPayment_HMS03_Team7" Relationship="Self.FK__tblPaymen__Custo__3E89B03A" FromRole="tblCustomer_HMS03_Team7" ToRole="tblPayment_HMS03_Team7" />
+        </EntityType>
+        <EntityType Name="tblEmployee_HMS03_Team7">
+          <Key>
+            <PropertyRef Name="EmployeeID" />
+          </Key>
+          <Property Name="EmployeeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LoginID" Type="Int32" />
+          <Property Name="Employee_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Gender" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="DateofBirth" Type="DateTime" Precision="0" />
+          <Property Name="Age" Type="Int32" />
+          <Property Name="Designation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Airlines" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Work_location" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Contact_Number" Type="Int64" />
+          <Property Name="EmailID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tblAeroplane_HMS03_Team7" Relationship="Self.FK__tblAeropl__Sched__22E195C5" FromRole="tblEmployee_HMS03_Team7" ToRole="tblAeroplane_HMS03_Team7" />
+          <NavigationProperty Name="tblLogin_HMS03_Team7" Relationship="Self.FK__tblEmploy__Login__18640752" FromRole="tblEmployee_HMS03_Team7" ToRole="tblLogin_HMS03_Team7" />
+        </EntityType>
+        <EntityType Name="tblJourney_HMS03_Team7">
+          <Key>
+            <PropertyRef Name="JourneyID" />
+          </Key>
+          <Property Name="JourneyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerID" Type="Int32" />
+          <Property Name="ScheduleID" Type="Int32" />
+          <Property Name="TotalBookingFare" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="NoOfPassengers_Adult" Type="Int32" />
+          <Property Name="NoOfPassengers_Child" Type="Int32" />
+          <Property Name="PaymentStatus" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="BonusRequstStatus" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="BookingDate" Type="DateTime" Precision="3" />
+          <Property Name="AdditionalBaggageCharge" Type="Decimal" Precision="18" Scale="2" />
+          <NavigationProperty Name="tblBonusMilesRequest_HMS03_Team7" Relationship="Self.FK__tblBonusM__Journ__44428990" FromRole="tblJourney_HMS03_Team7" ToRole="tblBonusMilesRequest_HMS03_Team7" />
+          <NavigationProperty Name="tblCustomer_HMS03_Team7" Relationship="Self.FK__tblJourne__Custo__312FB51C" FromRole="tblJourney_HMS03_Team7" ToRole="tblCustomer_HMS03_Team7" />
+          <NavigationProperty Name="tblSchedule_HMS03_Team7" Relationship="Self.FK__tblJourne__Sched__3223D955" FromRole="tblJourney_HMS03_Team7" ToRole="tblSchedule_HMS03_Team7" />
+          <NavigationProperty Name="tblPassenger_HMS03_Team7" Relationship="Self.FK__tblPassen__Journ__37DCB2AB" FromRole="tblJourney_HMS03_Team7" ToRole="tblPassenger_HMS03_Team7" />
+          <NavigationProperty Name="tblPayment_HMS03_Team7" Relationship="Self.FK__tblPaymen__Journ__3D958C01" FromRole="tblJourney_HMS03_Team7" ToRole="tblPayment_HMS03_Team7" />
+        </EntityType>
+        <EntityType Name="tblLogin_HMS03_Team7">
+          <Key>
+            <PropertyRef Name="LoginID" />
+          </Key>
+          <Property Name="LoginID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="uname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="pwd" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="roles" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tblCustomer_HMS03_Team7" Relationship="Self.FK__tblCustom__Login__1D28BC6F" FromRole="tblLogin_HMS03_Team7" ToRole="tblCustomer_HMS03_Team7" />
+          <NavigationProperty Name="tblEmployee_HMS03_Team7" Relationship="Self.FK__tblEmploy__Login__18640752" FromRole="tblLogin_HMS03_Team7" ToRole="tblEmployee_HMS03_Team7" />
+        </EntityType>
+        <EntityType Name="tblPassenger_HMS03_Team7">
+          <Key>
+            <PropertyRef Name="PassengerID" />
+          </Key>
+          <Property Name="PassengerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="JourneyID" Type="Int32" />
+          <Property Name="PassengerName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Gender" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="Age" Type="Int32" />
+          <Property Name="NoOfBaggages" Type="Int32" />
+          <Property Name="TotalWeightOfBaggages" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="CheckInStatus" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="CheckOutDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="tblJourney_HMS03_Team7" Relationship="Self.FK__tblPassen__Journ__37DCB2AB" FromRole="tblPassenger_HMS03_Team7" ToRole="tblJourney_HMS03_Team7" />
+        </EntityType>
+        <EntityType Name="tblPayment_HMS03_Team7">
+          <Key>
+            <PropertyRef Name="TransactionID" />
+          </Key>
+          <Property Name="TransactionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="JourneyID" Type="Int32" />
+          <Property Name="CardType" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="CardNumber" Type="Int64" />
+          <Property Name="CVV" Type="Int32" />
+          <Property Name="ExpiryDate" Type="DateTime" Precision="0" />
+          <Property Name="PaymentDate" Type="DateTime" Precision="3" />
+          <Property Name="PaymentType" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="CustomerID" Type="Int32" />
+          <Property Name="ScheduleID" Type="Int32" />
+          <NavigationProperty Name="tblCustomer_HMS03_Team7" Relationship="Self.FK__tblPaymen__Custo__3E89B03A" FromRole="tblPayment_HMS03_Team7" ToRole="tblCustomer_HMS03_Team7" />
+          <NavigationProperty Name="tblJourney_HMS03_Team7" Relationship="Self.FK__tblPaymen__Journ__3D958C01" FromRole="tblPayment_HMS03_Team7" ToRole="tblJourney_HMS03_Team7" />
+          <NavigationProperty Name="tblSchedule_HMS03_Team7" Relationship="Self.FK__tblPaymen__Sched__3F7DD473" FromRole="tblPayment_HMS03_Team7" ToRole="tblSchedule_HMS03_Team7" />
+        </EntityType>
+        <EntityType Name="tblSchedule_HMS03_Team7">
+          <Key>
+            <PropertyRef Name="ScheduleID" />
+          </Key>
+          <Property Name="ScheduleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PlaneRegistrationID" Type="Int32" />
+          <Property Name="Source" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Destination" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Departure" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Arrival" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Fare_Premium_Adult" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Fare_Economy_Adult" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Fare_Firstclass_Adult" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Fare_Premium_Child" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Fare_Firstclass_Child" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Fare_Economy_Child" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Availability_Premium" Type="Int32" />
+          <Property Name="Availability_Firstclass" Type="Int32" />
+          <Property Name="Availability_Economy" Type="Int32" />
+          <Property Name="TravelDistance" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="StatusofFlight" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BonusMiles" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BonusMilesPoints" Type="Decimal" Precision="18" Scale="0" />
+          <NavigationProperty Name="tblAeroplane_HMS03_Team7" Relationship="Self.FK__tblSchedu__Plane__289A6F1B" FromRole="tblSchedule_HMS03_Team7" ToRole="tblAeroplane_HMS03_Team7" />
+          <NavigationProperty Name="tblJourney_HMS03_Team7" Relationship="Self.FK__tblJourne__Sched__3223D955" FromRole="tblSchedule_HMS03_Team7" ToRole="tblJourney_HMS03_Team7" />
+          <NavigationProperty Name="tblPayment_HMS03_Team7" Relationship="Self.FK__tblPaymen__Sched__3F7DD473" FromRole="tblSchedule_HMS03_Team7" ToRole="tblPayment_HMS03_Team7" />
+        </EntityType>
+        <EntityType Name="tblSearch_HMS03_Team7">
+          <Key>
+            <PropertyRef Name="SearchID" />
+          </Key>
+          <Property Name="SearchID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Source" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Destination" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Departure" Type="DateTime" Precision="0" />
+          <Property Name="Class" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="NoOfPassengers_Adult" Type="Int32" />
+          <Property Name="NoOfPassengers_Child" Type="Int32" />
+        </EntityType>
+        <Association Name="FK__tblAeropl__Sched__22E195C5">
+          <End Role="tblEmployee_HMS03_Team7" Type="Self.tblEmployee_HMS03_Team7" Multiplicity="0..1" />
+          <End Role="tblAeroplane_HMS03_Team7" Type="Self.tblAeroplane_HMS03_Team7" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblEmployee_HMS03_Team7">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="tblAeroplane_HMS03_Team7">
+              <PropertyRef Name="SchedulerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblSchedu__Plane__289A6F1B">
+          <End Role="tblAeroplane_HMS03_Team7" Type="Self.tblAeroplane_HMS03_Team7" Multiplicity="0..1" />
+          <End Role="tblSchedule_HMS03_Team7" Type="Self.tblSchedule_HMS03_Team7" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblAeroplane_HMS03_Team7">
+              <PropertyRef Name="PlaneRegistrationID" />
+            </Principal>
+            <Dependent Role="tblSchedule_HMS03_Team7">
+              <PropertyRef Name="PlaneRegistrationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblBonusM__Journ__44428990">
+          <End Role="tblJourney_HMS03_Team7" Type="Self.tblJourney_HMS03_Team7" Multiplicity="0..1" />
+          <End Role="tblBonusMilesRequest_HMS03_Team7" Type="Self.tblBonusMilesRequest_HMS03_Team7" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblJourney_HMS03_Team7">
+              <PropertyRef Name="JourneyID" />
+            </Principal>
+            <Dependent Role="tblBonusMilesRequest_HMS03_Team7">
+              <PropertyRef Name="JourneyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblCustom__Login__1D28BC6F">
+          <End Role="tblLogin_HMS03_Team7" Type="Self.tblLogin_HMS03_Team7" Multiplicity="0..1" />
+          <End Role="tblCustomer_HMS03_Team7" Type="Self.tblCustomer_HMS03_Team7" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblLogin_HMS03_Team7">
+              <PropertyRef Name="LoginID" />
+            </Principal>
+            <Dependent Role="tblCustomer_HMS03_Team7">
+              <PropertyRef Name="LoginID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblJourne__Custo__312FB51C">
+          <End Role="tblCustomer_HMS03_Team7" Type="Self.tblCustomer_HMS03_Team7" Multiplicity="0..1" />
+          <End Role="tblJourney_HMS03_Team7" Type="Self.tblJourney_HMS03_Team7" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCustomer_HMS03_Team7">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="tblJourney_HMS03_Team7">
+              <PropertyRef Name="CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblPaymen__Custo__3E89B03A">
+          <End Role="tblCustomer_HMS03_Team7" Type="Self.tblCustomer_HMS03_Team7" Multiplicity="0..1" />
+          <End Role="tblPayment_HMS03_Team7" Type="Self.tblPayment_HMS03_Team7" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCustomer_HMS03_Team7">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="tblPayment_HMS03_Team7">
+              <PropertyRef Name="CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblEmploy__Login__18640752">
+          <End Role="tblLogin_HMS03_Team7" Type="Self.tblLogin_HMS03_Team7" Multiplicity="0..1" />
+          <End Role="tblEmployee_HMS03_Team7" Type="Self.tblEmployee_HMS03_Team7" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblLogin_HMS03_Team7">
+              <PropertyRef Name="LoginID" />
+            </Principal>
+            <Dependent Role="tblEmployee_HMS03_Team7">
+              <PropertyRef Name="LoginID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblJourne__Sched__3223D955">
+          <End Role="tblSchedule_HMS03_Team7" Type="Self.tblSchedule_HMS03_Team7" Multiplicity="0..1" />
+          <End Role="tblJourney_HMS03_Team7" Type="Self.tblJourney_HMS03_Team7" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblSchedule_HMS03_Team7">
+              <PropertyRef Name="ScheduleID" />
+            </Principal>
+            <Dependent Role="tblJourney_HMS03_Team7">
+              <PropertyRef Name="ScheduleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblPassen__Journ__37DCB2AB">
+          <End Role="tblJourney_HMS03_Team7" Type="Self.tblJourney_HMS03_Team7" Multiplicity="0..1" />
+          <End Role="tblPassenger_HMS03_Team7" Type="Self.tblPassenger_HMS03_Team7" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblJourney_HMS03_Team7">
+              <PropertyRef Name="JourneyID" />
+            </Principal>
+            <Dependent Role="tblPassenger_HMS03_Team7">
+              <PropertyRef Name="JourneyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblPaymen__Journ__3D958C01">
+          <End Role="tblJourney_HMS03_Team7" Type="Self.tblJourney_HMS03_Team7" Multiplicity="0..1" />
+          <End Role="tblPayment_HMS03_Team7" Type="Self.tblPayment_HMS03_Team7" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblJourney_HMS03_Team7">
+              <PropertyRef Name="JourneyID" />
+            </Principal>
+            <Dependent Role="tblPayment_HMS03_Team7">
+              <PropertyRef Name="JourneyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblPaymen__Sched__3F7DD473">
+          <End Role="tblSchedule_HMS03_Team7" Type="Self.tblSchedule_HMS03_Team7" Multiplicity="0..1" />
+          <End Role="tblPayment_HMS03_Team7" Type="Self.tblPayment_HMS03_Team7" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblSchedule_HMS03_Team7">
+              <PropertyRef Name="ScheduleID" />
+            </Principal>
+            <Dependent Role="tblPayment_HMS03_Team7">
+              <PropertyRef Name="ScheduleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DB09AO114_1718Entities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tblAeroplane_HMS03_Team7" EntityType="Self.tblAeroplane_HMS03_Team7" />
+          <EntitySet Name="tblBonusMilesRequest_HMS03_Team7" EntityType="Self.tblBonusMilesRequest_HMS03_Team7" />
+          <EntitySet Name="tblCustomer_HMS03_Team7" EntityType="Self.tblCustomer_HMS03_Team7" />
+          <EntitySet Name="tblEmployee_HMS03_Team7" EntityType="Self.tblEmployee_HMS03_Team7" />
+          <EntitySet Name="tblJourney_HMS03_Team7" EntityType="Self.tblJourney_HMS03_Team7" />
+          <EntitySet Name="tblLogin_HMS03_Team7" EntityType="Self.tblLogin_HMS03_Team7" />
+          <EntitySet Name="tblPassenger_HMS03_Team7" EntityType="Self.tblPassenger_HMS03_Team7" />
+          <EntitySet Name="tblPayment_HMS03_Team7" EntityType="Self.tblPayment_HMS03_Team7" />
+          <EntitySet Name="tblSchedule_HMS03_Team7" EntityType="Self.tblSchedule_HMS03_Team7" />
+          <EntitySet Name="tblSearch_HMS03_Team7" EntityType="Self.tblSearch_HMS03_Team7" />
+          <AssociationSet Name="FK__tblAeropl__Sched__22E195C5" Association="Self.FK__tblAeropl__Sched__22E195C5">
+            <End Role="tblEmployee_HMS03_Team7" EntitySet="tblEmployee_HMS03_Team7" />
+            <End Role="tblAeroplane_HMS03_Team7" EntitySet="tblAeroplane_HMS03_Team7" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblSchedu__Plane__289A6F1B" Association="Self.FK__tblSchedu__Plane__289A6F1B">
+            <End Role="tblAeroplane_HMS03_Team7" EntitySet="tblAeroplane_HMS03_Team7" />
+            <End Role="tblSchedule_HMS03_Team7" EntitySet="tblSchedule_HMS03_Team7" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblBonusM__Journ__44428990" Association="Self.FK__tblBonusM__Journ__44428990">
+            <End Role="tblJourney_HMS03_Team7" EntitySet="tblJourney_HMS03_Team7" />
+            <End Role="tblBonusMilesRequest_HMS03_Team7" EntitySet="tblBonusMilesRequest_HMS03_Team7" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblCustom__Login__1D28BC6F" Association="Self.FK__tblCustom__Login__1D28BC6F">
+            <End Role="tblLogin_HMS03_Team7" EntitySet="tblLogin_HMS03_Team7" />
+            <End Role="tblCustomer_HMS03_Team7" EntitySet="tblCustomer_HMS03_Team7" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblJourne__Custo__312FB51C" Association="Self.FK__tblJourne__Custo__312FB51C">
+            <End Role="tblCustomer_HMS03_Team7" EntitySet="tblCustomer_HMS03_Team7" />
+            <End Role="tblJourney_HMS03_Team7" EntitySet="tblJourney_HMS03_Team7" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblPaymen__Custo__3E89B03A" Association="Self.FK__tblPaymen__Custo__3E89B03A">
+            <End Role="tblCustomer_HMS03_Team7" EntitySet="tblCustomer_HMS03_Team7" />
+            <End Role="tblPayment_HMS03_Team7" EntitySet="tblPayment_HMS03_Team7" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblEmploy__Login__18640752" Association="Self.FK__tblEmploy__Login__18640752">
+            <End Role="tblLogin_HMS03_Team7" EntitySet="tblLogin_HMS03_Team7" />
+            <End Role="tblEmployee_HMS03_Team7" EntitySet="tblEmployee_HMS03_Team7" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblJourne__Sched__3223D955" Association="Self.FK__tblJourne__Sched__3223D955">
+            <End Role="tblSchedule_HMS03_Team7" EntitySet="tblSchedule_HMS03_Team7" />
+            <End Role="tblJourney_HMS03_Team7" EntitySet="tblJourney_HMS03_Team7" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblPassen__Journ__37DCB2AB" Association="Self.FK__tblPassen__Journ__37DCB2AB">
+            <End Role="tblJourney_HMS03_Team7" EntitySet="tblJourney_HMS03_Team7" />
+            <End Role="tblPassenger_HMS03_Team7" EntitySet="tblPassenger_HMS03_Team7" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblPaymen__Journ__3D958C01" Association="Self.FK__tblPaymen__Journ__3D958C01">
+            <End Role="tblJourney_HMS03_Team7" EntitySet="tblJourney_HMS03_Team7" />
+            <End Role="tblPayment_HMS03_Team7" EntitySet="tblPayment_HMS03_Team7" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblPaymen__Sched__3F7DD473" Association="Self.FK__tblPaymen__Sched__3F7DD473">
+            <End Role="tblSchedule_HMS03_Team7" EntitySet="tblSchedule_HMS03_Team7" />
+            <End Role="tblPayment_HMS03_Team7" EntitySet="tblPayment_HMS03_Team7" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DB09AO114_1718ModelStoreContainer" CdmEntityContainer="DB09AO114_1718Entities1">
+          <EntitySetMapping Name="tblAeroplane_HMS03_Team7">
+            <EntityTypeMapping TypeName="DB09AO114_1718Model.tblAeroplane_HMS03_Team7">
+              <MappingFragment StoreEntitySet="tblAeroplane_HMS03_Team7">
+                <ScalarProperty Name="PlaneRegistrationID" ColumnName="PlaneRegistrationID" />
+                <ScalarProperty Name="DateOfCommencement" ColumnName="DateOfCommencement" />
+                <ScalarProperty Name="DateOdMAnufacturing" ColumnName="DateOdMAnufacturing" />
+                <ScalarProperty Name="AirplaneSeries" ColumnName="AirplaneSeries" />
+                <ScalarProperty Name="Airline" ColumnName="Airline" />
+                <ScalarProperty Name="Capacity_Premium" ColumnName="Capacity_Premium" />
+                <ScalarProperty Name="Capacity_FirstClass" ColumnName="Capacity_FirstClass" />
+                <ScalarProperty Name="Capacity_Economy" ColumnName="Capacity_Economy" />
+                <ScalarProperty Name="TakeOffWeight" ColumnName="TakeOffWeight" />
+                <ScalarProperty Name="MaximumDistance" ColumnName="MaximumDistance" />
+                <ScalarProperty Name="LocationOfPlane" ColumnName="LocationOfPlane" />
+                <ScalarProperty Name="SchedulerID" ColumnName="SchedulerID" />
+                <ScalarProperty Name="RecentUpdate" ColumnName="RecentUpdate" />
+                <ScalarProperty Name="ScheduleStatus" ColumnName="ScheduleStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblBonusMilesRequest_HMS03_Team7">
+            <EntityTypeMapping TypeName="DB09AO114_1718Model.tblBonusMilesRequest_HMS03_Team7">
+              <MappingFragment StoreEntitySet="tblBonusMilesRequest_HMS03_Team7">
+                <ScalarProperty Name="BonusID" ColumnName="BonusID" />
+                <ScalarProperty Name="JourneyID" ColumnName="JourneyID" />
+                <ScalarProperty Name="BonusRequestDate" ColumnName="BonusRequestDate" />
+                <ScalarProperty Name="BonusApprovalStatus" ColumnName="BonusApprovalStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblCustomer_HMS03_Team7">
+            <EntityTypeMapping TypeName="DB09AO114_1718Model.tblCustomer_HMS03_Team7">
+              <MappingFragment StoreEntitySet="tblCustomer_HMS03_Team7">
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="LoginID" ColumnName="LoginID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="StreetAddress" ColumnName="StreetAddress" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+                <ScalarProperty Name="Nationality" ColumnName="Nationality" />
+                <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+                <ScalarProperty Name="AlternateNumber" ColumnName="AlternateNumber" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="OfficeAddress" ColumnName="OfficeAddress" />
+                <ScalarProperty Name="BonusMilePoints" ColumnName="BonusMilePoints" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblEmployee_HMS03_Team7">
+            <EntityTypeMapping TypeName="DB09AO114_1718Model.tblEmployee_HMS03_Team7">
+              <MappingFragment StoreEntitySet="tblEmployee_HMS03_Team7">
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="LoginID" ColumnName="LoginID" />
+                <ScalarProperty Name="Employee_Name" ColumnName="Employee_Name" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="DateofBirth" ColumnName="DateofBirth" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="Designation" ColumnName="Designation" />
+                <ScalarProperty Name="Airlines" ColumnName="Airlines" />
+                <ScalarProperty Name="Work_location" ColumnName="Work_location" />
+                <ScalarProperty Name="Contact_Number" ColumnName="Contact_Number" />
+                <ScalarProperty Name="EmailID" ColumnName="EmailID" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblJourney_HMS03_Team7">
+            <EntityTypeMapping TypeName="DB09AO114_1718Model.tblJourney_HMS03_Team7">
+              <MappingFragment StoreEntitySet="tblJourney_HMS03_Team7">
+                <ScalarProperty Name="JourneyID" ColumnName="JourneyID" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="ScheduleID" ColumnName="ScheduleID" />
+                <ScalarProperty Name="TotalBookingFare" ColumnName="TotalBookingFare" />
+                <ScalarProperty Name="NoOfPassengers_Adult" ColumnName="NoOfPassengers_Adult" />
+                <ScalarProperty Name="NoOfPassengers_Child" ColumnName="NoOfPassengers_Child" />
+                <ScalarProperty Name="PaymentStatus" ColumnName="PaymentStatus" />
+                <ScalarProperty Name="BonusRequstStatus" ColumnName="BonusRequstStatus" />
+                <ScalarProperty Name="BookingDate" ColumnName="BookingDate" />
+                <ScalarProperty Name="AdditionalBaggageCharge" ColumnName="AdditionalBaggageCharge" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblLogin_HMS03_Team7">
+            <EntityTypeMapping TypeName="DB09AO114_1718Model.tblLogin_HMS03_Team7">
+              <MappingFragment StoreEntitySet="tblLogin_HMS03_Team7">
+                <ScalarProperty Name="LoginID" ColumnName="LoginID" />
+                <ScalarProperty Name="uname" ColumnName="uname" />
+                <ScalarProperty Name="pwd" ColumnName="pwd" />
+                <ScalarProperty Name="roles" ColumnName="roles" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblPassenger_HMS03_Team7">
+            <EntityTypeMapping TypeName="DB09AO114_1718Model.tblPassenger_HMS03_Team7">
+              <MappingFragment StoreEntitySet="tblPassenger_HMS03_Team7">
+                <ScalarProperty Name="PassengerID" ColumnName="PassengerID" />
+                <ScalarProperty Name="JourneyID" ColumnName="JourneyID" />
+                <ScalarProperty Name="PassengerName" ColumnName="PassengerName" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="NoOfBaggages" ColumnName="NoOfBaggages" />
+                <ScalarProperty Name="TotalWeightOfBaggages" ColumnName="TotalWeightOfBaggages" />
+                <ScalarProperty Name="CheckInStatus" ColumnName="CheckInStatus" />
+                <ScalarProperty Name="CheckOutDate" ColumnName="CheckOutDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblPayment_HMS03_Team7">
+            <EntityTypeMapping TypeName="DB09AO114_1718Model.tblPayment_HMS03_Team7">
+              <MappingFragment StoreEntitySet="tblPayment_HMS03_Team7">
+                <ScalarProperty Name="TransactionID" ColumnName="TransactionID" />
+                <ScalarProperty Name="JourneyID" ColumnName="JourneyID" />
+                <ScalarProperty Name="CardType" ColumnName="CardType" />
+                <ScalarProperty Name="CardNumber" ColumnName="CardNumber" />
+                <ScalarProperty Name="CVV" ColumnName="CVV" />
+                <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
+                <ScalarProperty Name="PaymentDate" ColumnName="PaymentDate" />
+                <ScalarProperty Name="PaymentType" ColumnName="PaymentType" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="ScheduleID" ColumnName="ScheduleID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblSchedule_HMS03_Team7">
+            <EntityTypeMapping TypeName="DB09AO114_1718Model.tblSchedule_HMS03_Team7">
+              <MappingFragment StoreEntitySet="tblSchedule_HMS03_Team7">
+                <ScalarProperty Name="ScheduleID" ColumnName="ScheduleID" />
+                <ScalarProperty Name="PlaneRegistrationID" ColumnName="PlaneRegistrationID" />
+                <ScalarProperty Name="Source" ColumnName="Source" />
+                <ScalarProperty Name="Destination" ColumnName="Destination" />
+                <ScalarProperty Name="Departure" ColumnName="Departure" />
+                <ScalarProperty Name="Arrival" ColumnName="Arrival" />
+                <ScalarProperty Name="Fare_Premium_Adult" ColumnName="Fare_Premium_Adult" />
+                <ScalarProperty Name="Fare_Economy_Adult" ColumnName="Fare_Economy_Adult" />
+                <ScalarProperty Name="Fare_Firstclass_Adult" ColumnName="Fare_Firstclass_Adult" />
+                <ScalarProperty Name="Fare_Premium_Child" ColumnName="Fare_Premium_Child" />
+                <ScalarProperty Name="Fare_Firstclass_Child" ColumnName="Fare_Firstclass_Child" />
+                <ScalarProperty Name="Fare_Economy_Child" ColumnName="Fare_Economy_Child" />
+                <ScalarProperty Name="Availability_Premium" ColumnName="Availability_Premium" />
+                <ScalarProperty Name="Availability_Firstclass" ColumnName="Availability_Firstclass" />
+                <ScalarProperty Name="Availability_Economy" ColumnName="Availability_Economy" />
+                <ScalarProperty Name="TravelDistance" ColumnName="TravelDistance" />
+                <ScalarProperty Name="StatusofFlight" ColumnName="StatusofFlight" />
+                <ScalarProperty Name="BonusMiles" ColumnName="BonusMiles" />
+                <ScalarProperty Name="BonusMilesPoints" ColumnName="BonusMilesPoints" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblSearch_HMS03_Team7">
+            <EntityTypeMapping TypeName="DB09AO114_1718Model.tblSearch_HMS03_Team7">
+              <MappingFragment StoreEntitySet="tblSearch_HMS03_Team7">
+                <ScalarProperty Name="SearchID" ColumnName="SearchID" />
+                <ScalarProperty Name="Source" ColumnName="Source" />
+                <ScalarProperty Name="Destination" ColumnName="Destination" />
+                <ScalarProperty Name="Departure" ColumnName="Departure" />
+                <ScalarProperty Name="Class" ColumnName="Class" />
+                <ScalarProperty Name="NoOfPassengers_Adult" ColumnName="NoOfPassengers_Adult" />
+                <ScalarProperty Name="NoOfPassengers_Child" ColumnName="NoOfPassengers_Child" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

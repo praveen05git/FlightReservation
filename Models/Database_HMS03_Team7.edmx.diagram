@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="220cd7c35ee944f598abf744c1410f60" Name="Diagram1">
+        <EntityTypeShape EntityType="DB09AO114_1718Model.tblAeroplane_HMS03_Team7" Width="1.5" PointX="5.25" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB09AO114_1718Model.tblBonusMilesRequest_HMS03_Team7" Width="1.5" PointX="12" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB09AO114_1718Model.tblCustomer_HMS03_Team7" Width="1.5" PointX="3" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB09AO114_1718Model.tblEmployee_HMS03_Team7" Width="1.5" PointX="3" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB09AO114_1718Model.tblJourney_HMS03_Team7" Width="1.5" PointX="9.75" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB09AO114_1718Model.tblLogin_HMS03_Team7" Width="1.5" PointX="0.75" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB09AO114_1718Model.tblPassenger_HMS03_Team7" Width="1.5" PointX="12" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB09AO114_1718Model.tblPayment_HMS03_Team7" Width="1.5" PointX="15" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB09AO114_1718Model.tblSchedule_HMS03_Team7" Width="1.875" PointX="7.5" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB09AO114_1718Model.tblSearch_HMS03_Team7" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="DB09AO114_1718Model.FK__tblAeropl__Sched__22E195C5" ManuallyRouted="false" />
+        <AssociationConnector Association="DB09AO114_1718Model.FK__tblSchedu__Plane__289A6F1B" ManuallyRouted="false" />
+        <AssociationConnector Association="DB09AO114_1718Model.FK__tblBonusM__Journ__44428990" ManuallyRouted="false" />
+        <AssociationConnector Association="DB09AO114_1718Model.FK__tblCustom__Login__1D28BC6F" ManuallyRouted="false" />
+        <AssociationConnector Association="DB09AO114_1718Model.FK__tblJourne__Custo__312FB51C" ManuallyRouted="false" />
+        <AssociationConnector Association="DB09AO114_1718Model.FK__tblPaymen__Custo__3E89B03A" ManuallyRouted="false" />
+        <AssociationConnector Association="DB09AO114_1718Model.FK__tblEmploy__Login__18640752" ManuallyRouted="false" />
+        <AssociationConnector Association="DB09AO114_1718Model.FK__tblJourne__Sched__3223D955" ManuallyRouted="false" />
+        <AssociationConnector Association="DB09AO114_1718Model.FK__tblPassen__Journ__37DCB2AB" ManuallyRouted="false" />
+        <AssociationConnector Association="DB09AO114_1718Model.FK__tblPaymen__Journ__3D958C01" ManuallyRouted="false" />
+        <AssociationConnector Association="DB09AO114_1718Model.FK__tblPaymen__Sched__3F7DD473" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
