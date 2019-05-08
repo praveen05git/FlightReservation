@@ -1,0 +1,177 @@
+﻿@model IEnumerable<SandMax1.Models.tblSchedule_HMS03_Team7>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Source)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Destination)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Departure)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Arrival)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Availability_Premium)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Availability_Firstclass)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Availability_Economy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TravelDistance)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        int SearchID = int.Parse((string)Session["SerID"].ToString());
+        string SOURCE = (string)Session["Source"].ToString();
+        string DESTINATION = (string)Session["Dest"].ToString();
+        DateTime DEPARTURE = DateTime.Parse((string)Session["Depr"].ToString());
+        string CLASS = (string)Session["Class"].ToString();
+        int NoOfAdult = int.Parse((string)Session["NOofADULT"].ToString());
+        int NoOfChild = int.Parse((string)Session["NOofCHILD"].ToString());
+
+
+        if (CLASS == "Premium")
+        {
+            if (item.Source == SOURCE && item.Destination == DESTINATION && item.Departure.Date == DEPARTURE.Date && (item.Availability_Premium >= (NoOfAdult + NoOfChild)))
+
+            {
+
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Source)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Destination)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Departure)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Arrival)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Availability_Premium)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Availability_Firstclass)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Availability_Economy)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TravelDistance)
+                    </td>
+
+                    <td>
+
+                        @Html.ActionLink("BookTicket", "BookTicket", new { id = item.ScheduleID })
+
+                    </td>
+                </tr>
+            }
+        }
+
+        if (CLASS == "Firstclass")
+        {
+            if (item.Source == SOURCE && item.Destination == DESTINATION && item.Departure.Date == DEPARTURE.Date && (item.Availability_Firstclass >= (NoOfAdult + NoOfChild)))
+
+            {
+
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Source)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Destination)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Departure)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Arrival)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Availability_Premium)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Availability_Firstclass)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Availability_Economy)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TravelDistance)
+                    </td>
+
+                    <td>
+
+                        @Html.ActionLink("BookTicket", "BookTicket", new { id = item.ScheduleID })
+
+                    </td>
+                </tr>
+            }
+        }
+
+        if (CLASS == "Economy")
+        {
+            if (item.Source == SOURCE && item.Destination == DESTINATION && item.Departure.Date == DEPARTURE.Date && (item.Availability_Economy >= (NoOfAdult + NoOfChild)))
+
+            {
+
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Source)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Destination)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Departure)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Arrival)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Availability_Premium)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Availability_Firstclass)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Availability_Economy)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TravelDistance)
+                    </td>
+
+                    <td>
+
+                        @Html.ActionLink("BookTicket", "BookTicket", new { id = item.ScheduleID })
+
+                    </td>
+                </tr>
+            }
+        }
+    }
+
+</table>

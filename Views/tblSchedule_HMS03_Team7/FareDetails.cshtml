@@ -1,0 +1,154 @@
+﻿@model SandMax1.Models.tblSchedule_HMS03_Team7
+
+@{
+    ViewBag.Title = "Details";
+    
+}
+
+<h2>Fare Details</h2>
+<link rel="stylesheet" href="~/Content/style.css" />
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.tblAeroplane_HMS03_Team7.AirplaneSeries)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblAeroplane_HMS03_Team7.AirplaneSeries)
+        </dd>
+        <dt>
+            Source
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Source)
+        </dd>
+
+        <dt>
+            Destination
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Destination)
+        </dd>
+
+        <dt>
+            Departure
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Departure)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Arrival)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Arrival)
+        </dd>
+        <dt>Class</dt>
+        <dd>@Session["Class"].ToString()</dd>
+        
+        @if (Session["Class"].ToString().Equals("Premium"))
+        {
+            <dt>
+                @Html.DisplayNameFor(model => model.Fare_Premium_Adult)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Fare_Premium_Adult)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Fare_Premium_Child)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Fare_Premium_Child)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Availability_Premium)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Availability_Premium)
+            </dd>
+
+
+        }
+        else if (Session["Class"].ToString().Equals("Economy"))
+        {
+            <dt>
+                @Html.DisplayNameFor(model => model.Fare_Economy_Adult)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Fare_Economy_Adult)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Fare_Economy_Child)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Fare_Economy_Child)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Availability_Economy)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Availability_Economy)
+            </dd>
+
+
+        }
+        else
+        {
+            <dt>
+                @Html.DisplayNameFor(model => model.Fare_Firstclass_Adult)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Fare_Firstclass_Adult)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Fare_Firstclass_Child)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Fare_Firstclass_Child)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Availability_Firstclass)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Availability_Firstclass)
+            </dd>
+        }
+        @*<dt>
+            Total Fare
+        </dt>
+        <dd>
+            @Decimal.Parse(Session["TotalFare"].ToString())
+        </dd>*@
+
+
+    </dl>
+</div>
+<div>
+    <center>
+        <table>
+            <tr>
+                <td>
+                    <a href="@Url.Action("Create", "tblSearch_HMS03_Team7")" class="btn btn-default" type="submit" value="Replan" name="Replan">Replan</a>
+                </td>
+                <td></td>
+                <td>
+                    <a href="@Url.Action("AddJourney", "tblJourney_HMS03_Team7")" class="btn btn-default" type="submit">Book Ticket</a>
+                </td>
+            </tr>
+        </table>
+    </center>
+</div>

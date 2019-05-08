@@ -1,0 +1,81 @@
+﻿@model IEnumerable<SandMax1.Models.tblPayment_HMS03_Team7>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CardType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CardNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CVV)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ExpiryDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PaymentDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PaymentType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tblCustomer_HMS03_Team7.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tblJourney_HMS03_Team7.PaymentStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tblSchedule_HMS03_Team7.Source)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CardType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CardNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CVV)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ExpiryDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PaymentDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PaymentType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tblCustomer_HMS03_Team7.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tblJourney_HMS03_Team7.PaymentStatus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tblSchedule_HMS03_Team7.Source)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.TransactionID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.TransactionID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.TransactionID })
+        </td>
+    </tr>
+}
+
+</table>

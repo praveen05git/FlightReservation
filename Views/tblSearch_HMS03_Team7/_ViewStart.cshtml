@@ -1,0 +1,18 @@
+﻿@{
+    try
+    {
+        if ((Session["username"].ToString()) == null)
+        { Layout = "~/Views/Shared/_LoginLayout.cshtml"; }
+
+        else if ((Session["username"].ToString()) != null)
+        {
+            Layout = "~/Views/Shared/_Layout.cshtml";
+        }
+    }
+    catch
+    {
+        Layout = "~/Views/Shared/_LoginLayout.cshtml";
+    }
+
+
+}

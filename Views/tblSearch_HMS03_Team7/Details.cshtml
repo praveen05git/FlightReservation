@@ -1,0 +1,66 @@
+﻿@model SandMax1.Models.tblSearch_HMS03_Team7
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tblSearch_HMS03_Team7</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Source)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Source)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Destination)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Destination)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Departure)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Departure)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Class)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Class)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NoOfPassengers_Adult)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NoOfPassengers_Adult)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NoOfPassengers_Child)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NoOfPassengers_Child)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.SearchID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

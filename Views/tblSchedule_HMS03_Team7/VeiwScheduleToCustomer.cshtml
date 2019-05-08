@@ -1,0 +1,197 @@
+﻿@model IEnumerable<SandMax1.Models.tblSchedule_HMS03_Team7>
+
+@{
+    ViewBag.Title = "Index";
+    ViewBag.avail = false;
+    
+}
+
+<center><h2>Search Results</h2></center>
+
+@foreach (var item in Model)
+{
+    int SearchID = int.Parse((string)Session["SerID"].ToString());
+    string SOURCE = (string)Session["Source"].ToString();
+    string DESTINATION = (string)Session["Dest"].ToString();
+    DateTime DEPARTURE = DateTime.Parse((string)Session["Depr"].ToString());
+    string CLASS = (string)Session["Class"].ToString();
+    int NoOfAdult = int.Parse((string)Session["NOofADULT"].ToString());
+    int NoOfChild = int.Parse((string)Session["NOofCHILD"].ToString());
+
+    if (item.Source == SOURCE && item.Destination == DESTINATION && item.Departure.Date == DEPARTURE.Date)
+    {
+        if (CLASS == "Premium")
+        {
+            if (item.Availability_Premium >= (NoOfAdult + NoOfChild))
+            {
+                ViewBag.avail = true;
+                break;
+            }
+        }
+
+        if (CLASS == "FirstClass")
+        {
+            if ((item.Availability_Firstclass >= (NoOfAdult + NoOfChild)))
+
+            {
+                ViewBag.avail = true;
+                break;
+            }
+        }
+
+        if (CLASS == "Economy")
+        {
+            if ((item.Availability_Economy >= (NoOfAdult + NoOfChild)))
+
+            {
+                ViewBag.avail = true;
+                break;
+            }
+        }
+
+    }
+}
+@if (ViewBag.avail == false)
+{
+    <center><h3>Sorry! No matches found!</h3></center>
+    }
+else
+{
+
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.tblAeroplane_HMS03_Team7.AirplaneSeries)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Source)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Destination)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Departure)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Arrival)
+            </th>
+            <th>
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            int SearchID = int.Parse((string)Session["SerID"].ToString());
+            string SOURCE = (string)Session["Source"].ToString();
+            string DESTINATION = (string)Session["Dest"].ToString();
+            DateTime DEPARTURE = DateTime.Parse((string)Session["Depr"].ToString());
+            string CLASS = (string)Session["Class"].ToString();
+            int NoOfAdult = int.Parse((string)Session["NOofADULT"].ToString());
+            int NoOfChild = int.Parse((string)Session["NOofCHILD"].ToString());
+
+
+            if (CLASS == "Premium")
+            {
+                if (item.Source == SOURCE && item.Destination == DESTINATION && item.Departure.Date == DEPARTURE.Date && (item.Availability_Premium >= (NoOfAdult + NoOfChild)))
+
+                {
+                    ViewBag.avail = true;
+                    <tr class="change">
+                        <td>
+                            @Html.DisplayFor(modelItem => item.tblAeroplane_HMS03_Team7.AirplaneSeries)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Source)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Destination)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Departure)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Arrival)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Check Fare", "FareDetails", new { id = item.ScheduleID, @class = "change" })
+                           
+
+                        </td>
+                    </tr>
+                }
+            }
+
+            else if (CLASS == "FirstClass")
+            {
+                if (item.Source == SOURCE && item.Destination == DESTINATION && item.Departure.Date == DEPARTURE.Date && (item.Availability_Firstclass >= (NoOfAdult + NoOfChild)))
+
+                {
+
+                    <tr class="change">
+                        <td>
+                            @Html.DisplayFor(modelItem => item.tblAeroplane_HMS03_Team7.AirplaneSeries)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Source)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Destination)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Departure)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Arrival)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Check Fares", "FareDetails", new { id = item.ScheduleID })
+
+                        </td>
+                    </tr>
+                }
+            }
+
+            else if (CLASS == "Economy")
+            {
+                if (item.Source == SOURCE && item.Destination == DESTINATION && item.Departure.Date == DEPARTURE.Date && (item.Availability_Economy >= (NoOfAdult + NoOfChild)))
+
+                {
+                    ViewBag.avail = true;
+                    <tr class="change">
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.tblAeroplane_HMS03_Team7.AirplaneSeries)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Source)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Destination)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Departure)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Arrival)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Check Fare", "FareDetails", new { id = item.ScheduleID})
+                       
+
+                        </td>
+                    </tr>
+                }
+            }
+
+        }
+
+
+
+    </table>
+}
+    <link rel="stylesheet" href="~/Content/style.css" />
+    <p>
+        <a href="@Url.Action("Create","tblSearch_HMS03_Team7")" class="btn btn-primary">Replan</a>
+        @*@Html.ActionLink("Replan", "Create","tblSearch_HMS03_Team7")*@
+    </p>
